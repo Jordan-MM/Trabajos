@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author WIN
  */
 public class Recorrido {
-    
+    //tiene parametros y constructores
     private final Trayecto trayecto;   
     private final Dia dia; 
     private final Tren tren;
@@ -40,22 +40,22 @@ public class Recorrido {
         return tren;
     }
     
-    private void esperar() throws InterruptedException {
+    private void esperar() throws InterruptedException {//tomarse tiempo
         Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));      
     }
-
+//imprime en pantalla la funcion to string escribe los detalles 
     public void iniciar() throws InterruptedException {
         System.out.println("\n" + toString() + "\n");
         
         Iterator<Estacion> e = getHorario().getEstaciones().iterator();
-        
+        //iterator los devueve la lista y lo guardamos en e
         while (e.hasNext()) {
             System.out.println("\n" + e.next().toString()); // Muestra Informacion Estacion
-            esperar();
+            esperar();//
             tren.desplazarPasajeros(getTrayecto());
-        }
+        }//el tren se encarga del desplazamiento subir bajar y monstarlos 
         
-        tren.totalPasajeros();
+        tren.totalPasajeros();//nos permite recoger la informcaion se han subido
     }
     
     @Override

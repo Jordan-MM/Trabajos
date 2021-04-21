@@ -9,6 +9,11 @@ package app;
  *
  * @author WIN
  */
+//En el maain lo enlazamos con la parte del simulador
+//Ejecuta o inicia el codigo
+//throws soporta los errores
+//tiene el proceso de la elaboracion del simulador
+//este simulador usa el singleton
 public class Main {
     public static void main(String[] args) throws InterruptedException{
     Simulador simulador = Simulador.getInstance();

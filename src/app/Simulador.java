@@ -19,7 +19,7 @@ public class Simulador {
     private static Simulador instancia; // Singleton
     
     private Simulador() { } 
-    
+    //llama una instancia de simulador usando el getinstane
     public static Simulador getInstance() {
         if (instancia == null) {
             instancia = new Simulador();
@@ -30,21 +30,24 @@ public class Simulador {
     private static boolean validar(Trayecto trayecto, Dia dia){
         return trayecto != Trayecto.DEFAULT && dia != Dia.DEFAULT;
     }
+    //se solicita el dia y se solicita recorido 
     public void inicializar() throws InterruptedException {
         Dia dia = solicitarDia();
         Trayecto trayecto = solicitarRecorrido(); 
-        
+        //y una vez traido se valida
         if(validar(trayecto,dia)){
             construirRecorrido(dia, trayecto);
         } else {
             System.out.println("El recorrido ingresado es incorrecto.");
         }
     }
+    //esta enlazado con el director y el constructor recorido
     public void construirRecorrido(Dia dia, Trayecto trayecto) throws InterruptedException {        
         ConstructorRecorrido builder = new ConstructorRecorrido(); // Builder
-        
+        //estas lineas se van por todo el codigo el constructor 
+        //construir recorido crea una nueva instancia del constructor recorido
         new Director().construirRecorrido(builder,trayecto,dia);
-        builder.getResult().iniciar();
+        builder.getResult().iniciar();//nos devuelve el recorrido 
     }
     
     private static Trayecto solicitarRecorrido(){

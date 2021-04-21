@@ -12,6 +12,7 @@ import recorridos.Trayecto;
  *
  * @author WIN
  */
+/// lista de funciones 
 public class Vagon {
     private final int id;   
     private final ArrayList<Pasajero> pasajeros;
@@ -39,7 +40,7 @@ public class Vagon {
     private int establecerBajantes(int cantidad){
         return (int) Math.floor(Math.random() * cantidad);
     }
-    
+    //necesita saber los establecer bajantes
     public String bajarPasajeros() {
         int bajantes = establecerBajantes(pasajeros.size());
         for(int i = bajantes; i > 0; i--) { 
@@ -91,25 +92,25 @@ private int establecerRecaudacion(int edad, Trayecto trayecto){
         
         return r;
     }
-    
+    //establece entrantes es un numero aleatorio 
 public String subirPasajeros(Trayecto trayecto) {
         int entrantes = establecerEntrantes(pasajeros.size());
-        
+        //creamos un numero pasajero 
         for (int i = 0; i < entrantes; i++) { 
             Pasajero pasajero = new Pasajero();
             total_recaudado += establecerRecaudacion(pasajero.obtenerEdad(),trayecto);
-            pasajeros.add(pasajero);
+            pasajeros.add(pasajero);//se agrega al pasajero
         }
         
-        total_transportado += entrantes;
+        total_transportado += entrantes;//se suma al total de tranportados
         return "Vagón" + getId() + ": " + entrantes + " - "; 
     } 
   private int establecerSentados(int cantidad){
         return (int) Math.floor((Math.random() * (maximo - cantidad) / 2));
     }
     
-    public String sentarPasajeros() {
+    public String sentarPasajeros() {//establecemos un numero alaeatorio 
         int sentados = establecerSentados(pasajeros.size());
         return "Vagón" + getId() + ": " + sentados + " - "; 
-    } 
+    } //retorna un las personas sentados
 }

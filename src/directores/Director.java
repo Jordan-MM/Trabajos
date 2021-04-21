@@ -6,10 +6,9 @@
 package directores;
 
 import componentes.Tren;
-import constructores.BaseHorario;
 import constructores.BaseRecorrido;
-import constructores.ConstructorHorario;
 import recorridos.Dia;
+import recorridos.Horario;
 import recorridos.Trayecto;
 
 /**
@@ -19,20 +18,13 @@ import recorridos.Trayecto;
 //es la clase de destribuir el trabajo
 public class Director {
     //necsita el builder las base recoriido es la interface de recorrido y utiliza los metodos dia 
-    //
+    //solo llamos al 
+    //para crear el trayecto necesita builder,trayecto y dia
+    //el builder que atrrae es un interfaces el director no sabe lo que trae pero si sabe que tiene
     public void construirRecorrido(BaseRecorrido builder, Trayecto trayecto, Dia dia) {
-        builder.setDia(dia);
+        builder.setDia(dia);//asigna el dia
         builder.setTrayecto(trayecto);
         builder.setTren(new Tren());  
-        //
-        ConstructorHorario builderHorario = new ConstructorHorario();
-        construirHorario(builderHorario,trayecto,dia);
-        
-        builder.setHorario(builderHorario.getResult());
-    }
-    
-    public void construirHorario(BaseHorario builder, Trayecto trayecto, Dia dia) {
-        builder.setDia(dia);
-        builder.setTrayecto(trayecto);
+        builder.setHorario(new Horario(trayecto, dia));
     }
 }

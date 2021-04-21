@@ -15,13 +15,13 @@ import recorridos.Trayecto;
  *
  * @author WIN
  */
-
+//implementa la base recorrido y hay una reacion con baserecorrido
 public class ConstructorRecorrido implements BaseRecorrido {
     private Trayecto trayecto;   
     private Dia dia; 
     private Tren tren;   
     private Horario horario;
-    
+    //lammaos las variables y las modificamos
     @Override
     public void setTrayecto(Trayecto trayecto) {
         this.trayecto = trayecto;
@@ -41,7 +41,7 @@ public class ConstructorRecorrido implements BaseRecorrido {
     public void setHorario(Horario horario) {
         this.horario = horario;
     }   
-  
+  //el constructor tiene gerresult que obtenemos el recorrido que tenemos ahora
     public Recorrido getResult() {
         return new Recorrido(trayecto, dia, tren, horario);
     }

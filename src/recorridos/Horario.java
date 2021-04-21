@@ -17,18 +17,18 @@ public class Horario {
     public final ArrayList<Estacion> estaciones;
     public final Dia dia;
     public final Trayecto trayecto;
-    
+    //para inciar necesita el trayecto y el dia
     public Horario(Trayecto t, Dia d) {
         dia = d;
         trayecto = t;
         estaciones = obtener();
     } 
-    
+    //usamos getestaciones para conseguir la lista de estaciones
     public ArrayList<Estacion> getEstaciones() {
         return estaciones;
     } 
     
-    public ArrayList<Estacion> obtener() {
+     public ArrayList<Estacion> obtener() {
         ArrayList<Estacion> e = new ArrayList<Estacion>();
         
         if(!Trayecto.SANJOSE_CARTAGO.equals(trayecto)){
